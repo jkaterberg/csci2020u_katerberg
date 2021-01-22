@@ -1,0 +1,33 @@
+Part 1 
+
+mkdir csci2020u
+cd csci2020u
+git init
+mkdir lab01
+git add .
+git commit -m "lab01 folder"
+git remote add origin git@github.com:jkaterberg/csci2020u_katerberg.git
+git push -u origin master
+touch Lab01.java
+git diff lab01/Lab01.java
+git commit -m "java source file"
+git push
+git diff master origin/master
+echo "*.class" > .gitignore
+git add .gitignore
+git diff master origin/master
+git commit -m ".gitignore"
+git diff master origin/master
+git push
+git pull
+
+Part 2
+
+git branch beta
+git checkout beta
+git add .
+git commit -m "changes to beta"
+git checkout master
+git diff master beta
+git merge master beta
+git push
