@@ -1,5 +1,5 @@
-Class Lab01{
+class Lab01{
 	public static void main(String[] args){
-		System.out.println("Hello There");
+		Hello.hello();
 	}
 }
