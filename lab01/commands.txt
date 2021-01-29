@@ -31,3 +31,102 @@ git checkout master
 git diff master beta
 git merge master beta
 git push
+
+Local Repository structure
+
+tree -a .
+.
+├── .git
+│   ├── branches
+│   ├── COMMIT_EDITMSG
+│   ├── config
+│   ├── description
+│   ├── FETCH_HEAD
+│   ├── HEAD
+│   ├── hooks
+│   │   ├── applypatch-msg.sample
+│   │   ├── commit-msg.sample
+│   │   ├── fsmonitor-watchman.sample
+│   │   ├── post-update.sample
+│   │   ├── pre-applypatch.sample
+│   │   ├── pre-commit.sample
+│   │   ├── pre-merge-commit.sample
+│   │   ├── prepare-commit-msg.sample
+│   │   ├── pre-push.sample
+│   │   ├── pre-rebase.sample
+│   │   ├── pre-receive.sample
+│   │   ├── push-to-checkout.sample
+│   │   └── update.sample
+│   ├── index
+│   ├── info
+│   │   └── exclude
+│   ├── logs
+│   │   ├── HEAD
+│   │   └── refs
+│   │       ├── heads
+│   │       │   ├── beta
+│   │       │   └── master
+│   │       └── remotes
+│   │           └── origin
+│   │               └── master
+│   ├── objects
+│   │   ├── 1c
+│   │   │   └── 9e47374873e3cc4b6d4f9644326b368675bbda
+│   │   ├── 1e
+│   │   │   └── a33d7a33014b68d38033af1bfaabda24f0944d
+│   │   ├── 28
+│   │   │   └── 56de4de1d6bc3fa547235bfd00b5b76c83fef1
+│   │   ├── 34
+│   │   │   └── 5f61d70e7a42b17b8f4cf088a2e6dcf637106e
+│   │   ├── 3e
+│   │   │   └── ed744746bec4a983bc8acfb19120e3f3845a1a
+│   │   ├── 3f
+│   │   │   └── dc64a24a9fb69cda07013af9461b913439b817
+│   │   ├── 40
+│   │   │   └── 5f908e992e56fd25c84697fab3784d8ddbdacb
+│   │   ├── 4b
+│   │   │   └── 825dc642cb6eb9a060e54bf8d69288fbee4904
+│   │   ├── 53
+│   │   │   └── 355b52ca863ebddad7b77a630667df0d162b03
+│   │   ├── 6b
+│   │   │   └── 468b62a9884e67ca19b673f8e14e1931d65036
+│   │   ├── 91
+│   │   │   └── 659adcce80d80711c742917e14e8d16fae8dce
+│   │   ├── a8
+│   │   │   └── 135ec5d8acf35dfc4e19dd283e0a5b82462ef7
+│   │   ├── b2
+│   │   │   └── b026de8bacfa908224b1ab872b81758c36495e
+│   │   ├── c1
+│   │   │   └── f66993bb4d45625ae093453834456096ae4a06
+│   │   ├── c3
+│   │   │   └── 194d67ead0c9b354cdae40f4a634c420f24b2b
+│   │   ├── cc
+│   │   │   └── 7c4a5b37fbf01f76f850c174e23e7aaf6b497f
+│   │   ├── d9
+│   │   │   └── fbc1682e8fe4eb033df77223f6bf2eeadf7a40
+│   │   ├── db
+│   │   │   └── 378ca46365e983af6a3c4b8cc157bd0d4bccc4
+│   │   ├── e4
+│   │   │   └── 8adf1f4de21af538ae1bde8684fb1b7dbb51f6
+│   │   ├── e6
+│   │   │   └── 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+│   │   ├── ea
+│   │   │   └── 85d1c9d845c2f228c8ee2105b0c79a16fc4d1b
+│   │   ├── info
+│   │   └── pack
+│   ├── ORIG_HEAD
+│   └── refs
+│       ├── heads
+│       │   ├── beta
+│       │   └── master
+│       ├── remotes
+│       │   └── origin
+│       │       └── master
+│       └── tags
+├── .gitignore
+└── lab01
+    ├── commands.txt
+    ├── Hello.java
+    └── Lab01.java
+
+39 directories, 53 files
