@@ -7,6 +7,15 @@ application {
 	mainClassName = 'SimpleTest'
 }
 
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile group: 'org.apache.commons',
+			name: 'commons-csv',
+			version: '1.8'
+			}
 run {
 	standardInput = System.in
 }
