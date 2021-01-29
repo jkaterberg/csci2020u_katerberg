@@ -1,0 +1,53 @@
+------------Commands-------------
+mkdir -p lab02/src/main/java/csci2020u/lab02
+cd lab02/src/main/java/csci2020u/lab02
+touch SimpleTest.java
+cd ../../../../../
+touch build.gradle
+vim build.gradle
+echo -e "*.class\n*.class" > .gitignore
+gradle tasks
+vim src/main/java/csci2020u/lab02/SimpleTest.java
+gradle classes
+cd build/classes/java/main && java SimpleTest
+cd ../../../../
+git add .
+git commit -m "lab02 part 1"
+git push
+vim build.gradle
+vim src/main/java/CSVDemo.java
+gradle classes
+git add .
+git commit -m "lab02 part 2"
+git push
+
+--------Local Repository---------
+csci2020u/lab02
+├── build
+│   ├── classes
+│   │   └── java
+│   │       └── main
+│   │           ├── CSVDemo.class
+│   │           └── SimpleTest.class
+│   ├── generated
+│   │   └── sources
+│   │       ├── annotationProcessor
+│   │       │   └── java
+│   │       │       └── main
+│   │       └── headers
+│   │           └── java
+│   │               └── main
+│   └── tmp
+│       └── compileJava
+│           └── source-classes-mapping.txt
+├── build.gradle
+├── commands
+└── src
+    └── main
+        └── java
+            ├── csci2020u
+            │   └── lab02
+            │       └── SimpleTest.java
+            └── CSVDemo.java
+
+19 directories, 7 files
