@@ -1,0 +1,141 @@
+------------Commands-------------
+$mkdir -p lab02/src/main/java/csci2020u/lab02
+$cd lab02/src/main/java/csci2020u/lab02
+$touch SimpleTest.java
+$cd ../../../../../
+$touch build.gradle
+$vim build.gradle
+$echo -e "*.class\n*.class" > .gitignore
+$gradle tasks
+
+> Task :tasks
+
+------------------------------------------------------------
+Tasks runnable from root project 'lab02'
+------------------------------------------------------------
+
+Application tasks
+-----------------
+run - Runs this project as a JVM application
+
+Build tasks
+-----------
+assemble - Assembles the outputs of this project.
+build - Assembles and tests this project.
+buildDependents - Assembles and tests this project and all projects that depend on it.
+buildNeeded - Assembles and tests this project and all projects it depends on.
+classes - Assembles main classes.
+clean - Deletes the build directory.
+jar - Assembles a jar archive containing the main classes.
+testClasses - Assembles test classes.
+
+Build Setup tasks
+-----------------
+init - Initializes a new Gradle build.
+wrapper - Generates Gradle wrapper files.
+
+Distribution tasks
+------------------
+assembleDist - Assembles the main distributions
+distTar - Bundles the project as a distribution.
+distZip - Bundles the project as a distribution.
+installDist - Installs the project as a distribution as-is.
+
+Documentation tasks
+-------------------
+javadoc - Generates Javadoc API documentation for the main source code.
+
+Help tasks
+----------
+buildEnvironment - Displays all buildscript dependencies declared in root project 'lab02'.
+dependencies - Displays all dependencies declared in root project 'lab02'.
+dependencyInsight - Displays the insight into a specific dependency in root project 'lab02'.
+help - Displays a help message.
+javaToolchains - Displays the detected java toolchains. [incubating]
+outgoingVariants - Displays the outgoing variants of root project 'lab02'.
+projects - Displays the sub-projects of root project 'lab02'.
+properties - Displays the properties of root project 'lab02'.
+tasks - Displays the tasks runnable from root project 'lab02'.
+
+Verification tasks
+------------------
+check - Runs all checks.
+test - Runs the unit tests.
+
+Rules
+-----
+Pattern: clean<TaskName>: Cleans the output files of a task.
+Pattern: build<ConfigurationName>: Assembles the artifacts of a configuration.
+Pattern: upload<ConfigurationName>: Assembles and uploads the artifacts belonging to a configuration.
+
+To see all tasks and more detail, run gradle tasks --all
+
+To see more detail about a task, run gradle help --task <task>
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
+Use '--warning-mode all' to show the individual deprecation warnings.
+See https://docs.gradle.org/6.8.1/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 380ms
+1 actionable task: 1 executed
+
+$ vim src/main/java/csci2020u/lab02/SimpleTest.java
+$ gradle classes
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
+Use '--warning-mode all' to show the individual deprecation warnings.
+See https://docs.gradle.org/6.8.1/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 400ms
+1 actionable task: 1 up-to-date
+
+$ cd build/classes/java/main && java SimpleTest
+$ cd ../../../../
+$ git add .
+$ git commit -m "lab02 part 1"
+$ git push
+$ vim build.gradle
+$ vim src/main/java/CSVDemo.java
+$ gradle classes
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
+Use '--warning-mode all' to show the individual deprecation warnings.
+See https://docs.gradle.org/6.8.1/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 400ms
+1 actionable task: 1 up-to-date
+
+$ git add .
+$ git commit -m "lab02 part 2"
+$ git push
+
+--------Local Repository---------
+csci2020u/lab02
+├── build
+│   ├── classes
+│   │   └── java
+│   │       └── main
+│   │           ├── CSVDemo.class
+│   │           └── SimpleTest.class
+│   ├── generated
+│   │   └── sources
+│   │       ├── annotationProcessor
+│   │       │   └── java
+│   │       │       └── main
+│   │       └── headers
+│   │           └── java
+│   │               └── main
+│   └── tmp
+│       └── compileJava
+│           └── source-classes-mapping.txt
+├── build.gradle
+├── commands
+└── src
+    └── main
+        └── java
+            ├── csci2020u
+            │   └── lab02
+            │       └── SimpleTest.java
+            └── CSVDemo.java
+
+19 directories, 7 files

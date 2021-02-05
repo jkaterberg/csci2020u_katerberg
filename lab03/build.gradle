@@ -1,0 +1,50 @@
+buildscript {
+	repositories {
+		flatDir dirs: '../proguard6.2.2/lib'
+	}
+	dependencies {
+		classpath ':proguard'
+	}
+}
+
+plugins {
+	id 'java-library'
+	id 'application'
+}
+
+task buildJar(type: Jar){
+	manifest {
+		attributes 'Implementation-Title': 'Lab 03',
+		'Main-Class': 'CSVDemo' 
+	}
+	baseName = project.name + '-all'
+	from {configurations.compile.collect { it.isDirectory() ? it : zipTree(it)  }}
+	with jar
+}
+
+
+
+task (minify, dependsOn: 'buildJar', type: proguard.gradle.ProGuardTask) {
+	configuration 'proguard.cfg'
+
+	injars  'build/libs/lab03-all.jar'
+	outjars 'build/libs/lab03-all-min.jar'
+}
+
+application {
+	mainClassName = 'CSVDemo'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile group: 'org.apache.commons',
+			name: 'commons-csv',
+			version: '1.8'
+			}
+run {
+	standardInput = System.in
+}
+
