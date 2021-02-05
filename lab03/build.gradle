@@ -1,3 +1,4 @@
+
 buildscript {
 	repositories {
 		flatDir dirs: '../proguard6.2.2/lib'
@@ -10,41 +11,39 @@ buildscript {
 plugins {
 	id 'java-library'
 	id 'application'
+	id "nebula.lint" version "16.17.0"
 }
 
-task buildJar(type: Jar){
+mainClassName = 'CSVDemo'
+
+gradleLint.rules = ['all-dependency']
+
+jar {
 	manifest {
 		attributes 'Implementation-Title': 'Lab 03',
 		'Main-Class': 'CSVDemo' 
 	}
-	baseName = project.name + '-all'
-	from {configurations.compile.collect { it.isDirectory() ? it : zipTree(it)  }}
-	with jar
 }
 
-
-
-task (minify, dependsOn: 'buildJar', type: proguard.gradle.ProGuardTask) {
+task (minify, dependsOn: 'jar', type: proguard.gradle.ProGuardTask) {
 	configuration 'proguard.cfg'
 
-	injars  'build/libs/lab03-all.jar'
-	outjars 'build/libs/lab03-all-min.jar'
+	injars  'build/libs/lab03.jar'
+	outjars 'build/libs/lab03-min.jar'
 }
 
-application {
-	mainClassName = 'CSVDemo'
-}
 
 repositories {
 	mavenCentral()
+	jcenter()
 }
 
 dependencies {
 	compile group: 'org.apache.commons',
 			name: 'commons-csv',
 			version: '1.8'
-			}
+}
+
 run {
 	standardInput = System.in
 }
-
