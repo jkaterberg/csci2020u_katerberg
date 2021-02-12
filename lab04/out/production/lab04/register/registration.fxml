@@ -23,12 +23,13 @@
 
     <Label text="Email : " GridPane.columnIndex="0" GridPane.rowIndex="4" />
     <TextField fx:id="emailField" promptText="Enter Email" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <Label fx:id="emailErrorLabel" text="" GridPane.columnIndex="2" GridPane.rowIndex="4" minWidth="150"/>
 
     <Label text="Phone # : " GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-    <TextField fx:id="phoneField" promptText="Enter Phone Number" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+    <TextField fx:id="phoneField" promptText="XXX-XXX-XXXX" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
 
     <Label text="Date of Birth : "  GridPane.columnIndex="0" GridPane.rowIndex="6"/>
-    <DatePicker fx:id="birthField" promptText="Enter Birth Date" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+    <DatePicker fx:id="birthField" promptText="YYYY-MM-DD" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
 
     <!-- Add Submit Button -->
     <Button fx:id="submitButton" text="Submit"
