@@ -4,13 +4,17 @@
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
 
     <columnConstraints>
-        <ColumnConstraints hgrow="ALWAYS" halignment="CENTER"/>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+        <ColumnConstraints hgrow="ALWAYS"/>
     </columnConstraints>
     <rowConstraints>
         <RowConstraints vgrow="ALWAYS"/>
     </rowConstraints>
 
-    <TableView fx:id="table" GridPane.columnIndex="0" GridPane.rowIndex="0">
+    <TableView fx:id="table" GridPane.columnSpan="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
         <columns>
             <TableColumn fx:id="sidColumn" text="SID" maxWidth="Infinity"/>
             <TableColumn fx:id="assignmentColumn" text="Assignments" maxWidth="Infinity"/>
@@ -20,4 +24,16 @@
             <TableColumn fx:id="letterColumn" text="Letter Grade"/>
         </columns>
     </TableView>
+
+    <Label text="SID:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField fx:id="sidInput" promptText="SID" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Label text="Assignments:" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+    <TextField fx:id="assignmentsInput" promptText="Assignments/100" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+    <Label text="Midterm:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <TextField fx:id="midtermInput" promptText="Midterm/100" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <Label text="Final Exam:" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+    <TextField fx:id="examInput" promptText="Final Exam/100" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+
+    <Button fx:id="addButton" text="Add" onAction="#addButtonHandler" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
+    <Label fx:id="errorLabel" textFill="red" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.columnSpan="3" />
 </GridPane>
