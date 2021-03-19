@@ -33,7 +33,7 @@ public class Controller implements Initializable {
     @FXML private TableColumn<StudentRecord, Float> finalColumn;
     @FXML private TableColumn<StudentRecord, Character> letterColumn;
 
-    private String currentFilename = "test.csv";
+    private String currentFilename = null;
 
     private ObservableList<StudentRecord> studentList = DataSource.getAllMarks();
 
@@ -80,19 +80,23 @@ public class Controller implements Initializable {
     @FXML
     private void save() {
         try {
-            //Create a new file object
-            File CSVFile = new File(currentFilename);
+            if(null != currentFilename) {
+                //Create a new file object
+                File CSVFile = new File(currentFilename);
 
-            //Generate CSV content
-            StringBuilder fileContent = new StringBuilder("SID,Assignments,Midterm,Final Exam\n");
-            for (StudentRecord item : studentList) {
-                fileContent.append(item.getStudentID()).append(", ").append(item.getAssignments()).append(", ").append(item.getMidterm()).append(", ").append(item.getFinalExam()).append("\n");
+                //Generate CSV content
+                StringBuilder fileContent = new StringBuilder("SID,Assignments,Midterm,Final Exam\n");
+                for (StudentRecord item : studentList) {
+                    fileContent.append(item.getStudentID()).append(", ").append(item.getAssignments()).append(", ").append(item.getMidterm()).append(", ").append(item.getFinalExam()).append("\n");
+                }
+
+                //Write CSV to file
+                FileWriter writer = new FileWriter(CSVFile);
+                writer.write(fileContent.toString());
+                writer.close();
+            }else{
+                saveFile();
             }
-
-            //Write CSV to file
-            FileWriter writer = new FileWriter(CSVFile);
-            writer.write(fileContent.toString());
-            writer.close();
         }catch(IOException e){
             //Try and handle the exception
             var alert = new Alert(Alert.AlertType.ERROR);
@@ -119,7 +123,7 @@ public class Controller implements Initializable {
             }
             sc.close();
             table.setItems(studentList);
-        }catch(FileNotFoundException e){
+        }catch(FileNotFoundException | NullPointerException e){
             //Try to handle errors
             var alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("File Not Found");
@@ -137,14 +141,23 @@ public class Controller implements Initializable {
     }
 
 
-    public void openFile(ActionEvent actionEvent) {
-        FileChooser chooser = new FileChooser();
-        File newFile = chooser.showOpenDialog(null);
-        currentFilename = newFile.getName();
-        load();
+    public void openFile() {
+        try {
+            FileChooser chooser = new FileChooser();
+            File newFile = chooser.showOpenDialog(null);
+            currentFilename = newFile.getName();
+            load();
+        }catch(NullPointerException e){
+            //Try to handle errors
+            var alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("File Not Found");
+            alert.setHeaderText("Could not locate" + currentFilename);
+            alert.setContentText("Ensure file exists and try again");
+            alert.showAndWait();
+        }
     }
 
-    public void saveFile(ActionEvent actionEvent) throws IOException {
+    public void saveFile() throws IOException {
         FileChooser chooser = new FileChooser();
         currentFilename = chooser.showSaveDialog(null).getName();
         save();
