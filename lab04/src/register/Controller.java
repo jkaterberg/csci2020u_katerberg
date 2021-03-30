@@ -27,10 +27,15 @@ public class Controller {
         final String datePattern = "yyyy-MM-dd";
         dateTimeFormatter = DateTimeFormatter.ofPattern(datePattern);
         birthField.setConverter(new StringConverter<LocalDate>() {
-            @Override
+
+            /**
+             * Method to convert a date into a string
+             * @param date LocalDate object
+             * @return string representation of date
+             */
             public String toString(LocalDate date) {
                 String finalDate = null;
-                if(date!=null)
+                if(null != date)
                     finalDate = dateTimeFormatter.format(date);
                 return finalDate;
             }

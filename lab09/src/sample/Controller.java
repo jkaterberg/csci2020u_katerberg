@@ -87,8 +87,8 @@ public class Controller implements Initializable {
         ArrayList<Float> stock1 = null;
         ArrayList<Float> stock2 = null;
         try {
-            stock1 = downloadStockPrices("AAPL");
-            stock2 = downloadStockPrices("GOOG");
+            stock1 = downloadStockPrices("GME");
+            stock2 = downloadStockPrices("BB");
 
             System.out.println(stock1);
             System.out.println(stock2);
